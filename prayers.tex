@@ -1,24 +1,76 @@
 \documentclass{article}
 
 \usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
 
-\usepackage{geometry}
-\geometry{letterpaper,margin=0.5in}
+\usepackage[includehead, includefoot]{geometry}
+\geometry{
+  top=0.5in,            % <-- you want to adjust this
+  inner=0.5in,
+  outer=0.5in,
+  bottom=0.5in,
+  footskip=6ex,
+  headheight=3ex,       % <-- and this
+  headsep=2ex          % <-- and this
+}
+
+\pagenumbering{gobble}
+
+\title{Traditional Catholic Prayers}
+\date{2019-09-02}
+
+\makeatletter
+\DeclareRobustCommand{\versicle}{\textbf{\vers@resp{-0.1em}{V}}}
+\DeclareRobustCommand{\response}{\textbf{\vers@resp{0pt}{R}}}
+
+\newcommand{\vers@resp@sym}{\raisebox{0.2ex}{\rotatebox[origin=c]{-20}{$\m@th\rceil$}}}
+
+\newcommand{\vers@resp}[2]{%
+  {\ooalign{\hidewidth\kern#1\vers@resp@sym\hidewidth\cr#2\cr}}%
+}
+\makeatother
+
+\usepackage{makecell,tabularx}
+
+\usepackage[extreme,normallists]{savetrees}
+
+\usepackage[final]{draftwatermark}
+\SetWatermarkColor[rgb]{1,0,0}
+\SetWatermarkScale{3.0}
+
+\renewcommand\theadfont{\normalsize}
+
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textbf{Traditional Catholic Prayers}}
+\lhead{\textbf{Morning Prayers}}
+\lfoot{\textit{https://github.com/johndec/tradcath-tex}}
+\rfoot{\textit{Version 1}}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
 
 \usepackage[parfill]{parskip}
 
-\title{Traditional Catholic Prayers}
-\date{2019-03-31}
-\author{John DeCuir}
+\titlespacing{\subsubsection}{0pt}{1.0\parskip}{-0.5\parskip}
 
+\usepackage[document]{ragged2e}
+
+\widowpenalty=10000
+\clubpenalty=10000
 
 \begin{document}
 
+\justify
+
 \begin{multicols}{3}
 
-\section*{Traditional Morning Prayers}
+\textit{Kneel down, and say:}
 
-\textit{Kneel down and making the sign of the cross, say:}
+\textbf{\textsc{Serviam.}}
 
 \textsc{In} the name of the Father, and of the Son, and of the Holy Ghost.
 Amen.
@@ -26,8 +78,7 @@ Amen.
 Blessed be the holy and undivided Trinity, now and for evermore.
 Amen.
 
-\subsection*{An Act of Adoration}
-
+\paragraph{An Act of Adoration.}
 \textsc{O great} God, the sovereign Lord of heaven and earth, I prostrate
 myself before Thee.  With all the Angels and Saints I adore
 Thee, I acknowledge Thee to be my Creator and sovereign Lord,
@@ -36,35 +87,31 @@ of my being and life.  I submit myself to Thy holy Will,
 and I devote myself to Thy divine service this day and for
 ever.
 
-\paragraph{Our Father}
-
+\paragraph{Our Father.}
 \textsc{Our} Father, Who art in heaven, hallowed be Thy name.
 Thy kingdom come.  Thy will be done on earth, as it is in heaven.
 Give us this day our daily bread.  And forgive us our trespasses,
 as we forgive those who trespass against us.  And lead us not
 into temptation, but deliver us from evil.  Amen.
 
-\paragraph{Hail Mary}
-
+\paragraph{Hail Mary.}
 \textsc{Hail}, Mary, full of grace, the Lord is with thee;
 blessed art thou among women, and blessed is the fruit of
 thy womb, Jesus.  Holy Mary, Mother of God, pray for us sinners,
 now and at the hour of our death. Amen.
 
-\paragraph{The Apostles' Creed}
-
+\paragraph{The Apostles' Creed.}
 \textsc{I believe} in God, the Father almighty, Creator of Heaven and earth,
 and in in Jesus Christ, His only Son, our Lord. He was conceived by
 the Holy Ghost, and born of the Virgin Mary. He suffered under Pontius
 Pilate, was crucified, died and was buried. He descended into Hell.
 On the third day He rose again. He ascended into Heaven, and is seated
 at the right hand of God the Father Almighty. He will come again to
-judge the living and the dead. I believe in the Holy Spirit, the Holy
+judge the living and the dead. I believe in the Holy Ghost, the Holy
 Catholic Church, the communion of saints, the forgiveness of sins, the
 resurrection of the body, and life everlasting. Amen. 
 
-\paragraph{Act of Faith}
-
+\paragraph{Act of Faith.}
 \textsc{O my} God! I firmly believe that Thou art one God in three Divine persons,
 Father, Son, and Holy Ghost; I believe that Thy Divine Son became man,
 and died for our sins, and that he will come to judge the living and the
@@ -72,14 +119,12 @@ dead. I believe these and all the truths which the Holy Catholic Church
 teaches, because Thou hast revealed them, who canst neither deceive nor
 be deceived.
 
-\paragraph{Act of Hope}
-
+\paragraph{Act of Hope.}
 \textsc{O my} God! relying on Thy infinite goodness and promises, I hope to obtain
 pardon of my sins, the help of Thy grace, and life everlasting, through
 the merits of Jesus Christ, my Lord and Redeemer. 
 
-\paragraph{Act of Charity}
-
+\paragraph{Act of Charity.}
 \textsc{O my} God! I love Thee above all things, with my whole heart and soul,
 because Thou art all-good and worthy of all love. I love my neighbor as
 myself for the love of Thee. I forgive all who have injured me, and ask
@@ -100,26 +145,29 @@ that I may pass all my life in Thy divine service. Amen.
 
 \textit{In honor of the Immaculate Conception of our Blessed Lady:}
 
-\paragraph{Hail Mary}
-
+\paragraph{Hail Mary.}
 \textsc{Hail}, Mary, full of grace, the Lord is with thee;
 blessed art thou among women, and blessed is the fruit of
 thy womb, Jesus.  Holy Mary, Mother of God, pray for us sinners,
 now and at the hour of our death. Amen.
 
-\paragraph{Hail Mary}
+By thy pure and Immaculate Conception, O Mary, make my body pure and my soul holy.
 
+\paragraph{Hail Mary.}
 \textsc{Hail}, Mary, full of grace, the Lord is with thee;
 blessed art thou among women, and blessed is the fruit of
 thy womb, Jesus.  Holy Mary, Mother of God, pray for us sinners,
 now and at the hour of our death. Amen.
 
-\paragraph{Hail Mary}
+By thy pure and Immaculate Conception, O Mary, make my body pure and my soul holy.
 
+\paragraph{Hail Mary.}
 \textsc{Hail}, Mary, full of grace, the Lord is with thee;
 blessed art thou among women, and blessed is the fruit of
 thy womb, Jesus.  Holy Mary, Mother of God, pray for us sinners,
 now and at the hour of our death. Amen.
+
+By thy pure and Immaculate Conception, O Mary, make my body pure and my soul holy.
 
 \subsubsection*{Litany of the Holy Name of Jesus}
 
@@ -129,70 +177,70 @@ Lord, have mercy on us.\\
 Jesus, hear us.\\
 Jesus, graciously hear us.\\
 God, the Father of Heaven, \textit{have mercy on us.}\\
-God the Son, Redeemer of the world, \textit{have mercy on us.}\\
-God, the Holy Spirit, *\\
-Holy Trinity, one God,\\
-Jesus, Son of the living God,\\
-Jesus, Splendor of the Father,\\
-Jesus, Brightness of eternal Light,\\
-Jesus, King of Glory,\\
-Jesus, Sun of Justice,\\
-Jesus, Son of the Virgin Mary,\\
-Jesus, most amiable,\\
-Jesus, most admirable,\\ 
-Jesus, the mighty God,\\
-Jesus, Father of the world to come,\\ 
-Jesus, angel of great counsel,\\
-Jesus, most powerful,\\
-Jesus, most patient,\\
-Jesus, most obedient,\\
-Jesus, meek and humble of heart,\\ 
-Jesus, Lover of Chastity,\\
-Jesus, our Lover,\\
-Jesus, God of Peace,\\ 
-Jesus, Author of Life,\\ 
-Jesus, Model of Virtues,\\ 
-Jesus, zealous for souls,\\
-Jesus, our God,\\
-Jesus, our Refuge,\\ 
-Jesus, Father of the Poor,\\ 
-Jesus, Treasure of the Faithful,\\
-Jesus, good Shepherd,\\
-Jesus, true Light,\\
-Jesus, eternal Wisdom,\\ 
-Jesus, infinite Goodness,\\ 
-Jesus, our Way and our Life,\\ 
-Jesus, joy of the Angels,\\
-Jesus, King of the Patriarchs,\\ 
-Jesus, Master of the Apostles,\\
-Jesus, Teacher of the Evangelists,\\ 
-Jesus, Strength of Martyrs,\\
-Jesus, Light of Confessors,\\
-Jesus, Purity of Virgins,\\
-Jesus, Crown of all Saints,\\
+God the Son, Redeemer of the world, *\\
+God, the Holy Ghost, *\\
+Holy Trinity, one God, *\\
+Jesus, Son of the living God, *\\
+Jesus, Splendor of the Father, *\\
+Jesus, Brightness of eternal Light, *\\
+Jesus, King of Glory, *\\
+Jesus, Sun of Justice, *\\
+Jesus, Son of the Virgin Mary, *\\
+Jesus, most amiable, *\\
+Jesus, most admirable, *\\
+Jesus, the mighty God, *\\
+Jesus, Father of the world to come, *\\
+Jesus, angel of great counsel, *\\
+Jesus, most powerful, *\\
+Jesus, most patient, *\\
+Jesus, most obedient, *\\
+Jesus, meek and humble of heart, *\\
+Jesus, Lover of Chastity, *\\
+Jesus, our Lover, *\\
+Jesus, God of Peace, *\\
+Jesus, Author of Life, *\\
+Jesus, Model of Virtues, *\\
+Jesus, zealous for souls, *\\
+Jesus, our God, *\\
+Jesus, our Refuge, *\\
+Jesus, Father of the Poor, *\\
+Jesus, Treasure of the Faithful, *\\
+Jesus, good Shepherd, *\\
+Jesus, true Light, *\\
+Jesus, eternal Wisdom, *\\
+Jesus, infinite Goodness, *\\
+Jesus, our Way and our Life, *\\
+Jesus, joy of the Angels, *\\
+Jesus, King of the Patriarchs, *\\
+Jesus, Master of the Apostles, *\\
+Jesus, Teacher of the Evangelists, *\\
+Jesus, Strength of Martyrs, *\\
+Jesus, Light of Confessors, *\\
+Jesus, Purity of Virgins, *\\
+Jesus, Crown of all Saints, *\\
 Be merciful unto us, \textit{spare us, O Jesus.}\\
 Be merciful unto us, \textit{graciously hear us, O Jesus.}\\
 From all evil, \textit{Jesus, deliver us.}\\
-From all sin, *\\
-From Thy wrath,\\
-From the snares of the devil,\\
-From the spirit of fornication,\\
-From everlasting death,\\
-From the neglect of Thine inspirations,\\
-Through the mystery of Thy holy Incarnation,\\
-Through Thy Nativity,\\
-Through Thine Infancy,\\
-Through Thy most divine Life,\\
-Through Thy Labors,\\
-Through Thy Agony and Passion,\\
-Through Thy Cross and Dereliction,\\
-Through Thy Sufferings,\\
-Through Thy Death and Burial,\\
-Through Thy Resurrection,\\
-Through Thine Ascension,\\
-Through Thine Institution of the Most Holy Eucharist,\\
-Through Thy Joys,\\
-Through Thy Glory,\\
+From all sin, **\\
+From Thy wrath, **\\
+From the snares of the devil, **\\
+From the spirit of fornication, **\\
+From everlasting death, **\\
+From the neglect of Thine inspirations, **\\
+Through the mystery of Thy holy Incarnation, **\\
+Through Thy Nativity, **\\
+Through Thine Infancy, **\\
+Through Thy most divine Life, **\\
+Through Thy Labors, **\\
+Through Thy Agony and Passion, **\\
+Through Thy Cross and Dereliction, **\\
+Through Thy Sufferings, **\\
+Through Thy Death and Burial, **\\
+Through Thy Resurrection, **\\
+Through Thine Ascension, **\\
+Through Thine Institution of the Most Holy Eucharist, **\\
+Through Thy Joys, **\\
+Through Thy Glory, **\\
 Lamb of God, who take away the sins of the world, \textit{spare us, O Jesus.}\\
 Lamb of God, who take away the sins of the world, \textit{graciously hear us, O Jesus.}\\
 Lamb of God, who take away the sins of the world, \textit{have mercy on us, O Jesus.}\\
@@ -206,14 +254,9 @@ Make us, O Lord, to have a continual fear and love of Thy holy Name; for Thou
 never ceasest to rule and govern those whom Thou doest solidly establish in Thy
 love. Who livest and reignest for ever and ever. Amen.
 
-\subsection*{Prayer to the Guardian Angel}
+\paragraph*{Guardian Angel Prayer.}  Angel of God, my Guardian dear, To whom His love commits me here, Ever this day be at my side, To light and guard, to rule and guide.  Amen.
 
-\textsc{Angel} of God, my Guardian dear,\\
-To whom His love commits me here,\\
-Ever this day be at my side,\\
-To light and guard, to rule and guide.  Amen.
-
-\subsection*{Morning Hymn: Jam Lucis Orto Sidere}
+\subsubsection*{Morning Hymn: Jam Lucis Orto Sidere}
 
 \begin{enumerate}
     \item Now that the star of light has risen, let us to God most humbly pray,
@@ -225,12 +268,12 @@ And by spare use of meat and drink, our rebel passions to control.
     \item That, when the day has sped away, and He again the night shall bring,
 We may through holy abstinence, with purity His glory sing.
     \item All glory to the Father be; all praise, eternal Son to Thee;
-All honour as is ever meet to God the holy Paraclete. Amen.
+All honor as is ever meet to God the holy Paraclete. Amen.
 \end{enumerate}
 
-\subsection*{Come to us Holy Spirit}
+\subsubsection*{Come to us Holy Ghost}
 
-\textsc{Come} to us, Holy Spirit, come,\\
+\textsc{Come} to us, Holy Ghost, come,\\
 One with the Father and the Son,\\
 Vouchsafe to dwell within our souls\\
 And quickly make our hearts Thine own.\\
@@ -239,7 +282,7 @@ Confess and glorify Thy name,\\
 And let the fire of Charity\\
 Burn bright, and other hearts inflame.
 
-\subsection*{O God, who canst not}
+\subsubsection*{O God, who canst not}
 
 \textsc{O God}, Who canst not change nor fail,\\
 Guiding the hours as they roll by,\\
@@ -251,10 +294,727 @@ From perils guard our feeble life,\\
 And to our souls Thy peace impart.
 
 Grant this, O Father, Only Son,\\
-And Holy Spirit, God of grace,\\
+And Holy Ghost, God of grace,\\
 To Whom all glory, Three in One,\\
 Be given in every time and place. Amen.
 
+In the name of the Father, and of the Son, and of the Holy Ghost.  Amen.
+
 \end{multicols}
+
+  \vfill
+  \begin{center}    
+      \includegraphics [width=2in] {512px-Miraculous_medal_reverse_symbols.jpg}
+  \end{center}
+  \vfill
+  
+\pagebreak
+\lhead{\textbf{Evening Prayers}}
+
+\begin{multicols}{3}
+
+\textit{Kneel down, and say:}
+
+\textsc{In} the name of the Father, and of the Son, and of the Holy Ghost.  Amen.
+
+Blessed be the holy and undivided Trinity, now and forevermore.  Amen.
+
+Come, O Holy Ghost! Fill the hearts of Thy faithful, and kindle in them the fire
+of Thy divine love.
+
+\textit{Let us place ourselves in the presence of God.  Humbly adore Him:}
+
+\textsc{Great} God, the Lord of heaven and earth!  I prostrate myself before Thee.
+With all the Angels and Saints I adore Thee.  I acknowledge Thee to be my
+Creator and sovereign Lord, my first beginning and last end.  I render to Thee
+the homage of my being and life.  I submit myself to Thy holy Will, and I devote
+myself to Thy divine service, now and for ever.
+
+\paragraph{Our Father.}
+\textsc{Our} Father, Who art in heaven, hallowed be Thy name.
+Thy kingdom come.  Thy will be done on earth, as it is in heaven.
+Give us this day our daily bread.  And forgive us our trespasses,
+as we forgive those who trespass against us.  And lead us not
+into temptation, but deliver us from evil.  Amen.
+
+\textit{In honor of the Immaculate Conception of our Blessed Lady:}
+
+\paragraph{Hail Mary.}
+\textsc{Hail}, Mary, full of grace, the Lord is with thee;
+blessed art thou among women, and blessed is the fruit of
+thy womb, Jesus.  Holy Mary, Mother of God, pray for us sinners,
+now and at the hour of our death. Amen.
+
+By thy pure and Immaculate Conception, O Mary, make my body pure and my soul holy.
+
+\paragraph{Hail Mary.}
+\textsc{Hail}, Mary, full of grace, the Lord is with thee;
+blessed art thou among women, and blessed is the fruit of
+thy womb, Jesus.  Holy Mary, Mother of God, pray for us sinners,
+now and at the hour of our death. Amen.
+
+By thy pure and Immaculate Conception, O Mary, make my body pure and my soul holy.
+
+\paragraph{Hail Mary.}
+\textsc{Hail}, Mary, full of grace, the Lord is with thee;
+blessed art thou among women, and blessed is the fruit of
+thy womb, Jesus.  Holy Mary, Mother of God, pray for us sinners,
+now and at the hour of our death. Amen.
+
+By thy pure and Immaculate Conception, O Mary, make my body pure and my soul holy.
+
+\paragraph{The Apostles' Creed.}
+\textsc{I believe} in God, the Father almighty, Creator of Heaven and earth,
+and in Jesus Christ, His only Son, our Lord. He was conceived by
+the Holy Ghost, and born of the Virgin Mary. He suffered under Pontius
+Pilate, was crucified, died and was buried. He descended into Hell.
+On the third day He rose again. He ascended into Heaven, and is seated
+at the right hand of God the Father Almighty. He will come again to
+judge the living and the dead. I believe in the Holy Ghost, the Holy
+Catholic Church, the communion of saints, the forgiveness of sins, the
+resurrection of the body, and life everlasting. Amen. 
+
+\paragraph{The Confiteor.}
+\textsc{I confess} to almighty God, to blessed Mary ever Virgin, to blessed Michael the Archangel, to blessed John the Baptist, to the holy Apostles Peter and Paul, and to all the Saints, that I have sinned exceedingly in thought, word, and deed, through my fault [strike breast], through my fault [strike breast], through my most grievous fault [strike breast].  Therefore I beseech blessed Mary ever Virgin, blessed Michael the Archangel, blessed John the Baptist, the holy Apostles Peter and Paul, and all the Saints to pray to the Lord our God for me.\\
+\response. May almighty God have mercy upon us, forgive us our sins, and bring us to life everlasting. Amen.\\
+\versicle. May the almighty and merciful Lord grant us pardon, absolution, and remission of our sins.\\
+\response. Amen.
+
+\subsubsection*{Examination of Conscience}
+
+\textit{Examine yourself for what sins you have committed this day, by thought, word, deed, or omission.}
+
+\paragraph{Act of Faith.}
+\textsc{O my} God! I firmly believe that Thou art one God in three Divine persons,
+Father, Son, and Holy Ghost; I believe that Thy Divine Son became man,
+and died for our sins, and that he will come to judge the living and the
+dead. I believe these and all the truths which the Holy Catholic Church
+teaches, because Thou hast revealed them, who canst neither deceive nor
+be deceived.
+
+\paragraph{Act of Hope.}
+\textsc{O my} God! relying on Thy infinite goodness and promises, I hope to obtain
+pardon of my sins, the help of Thy grace, and life everlasting, through
+the merits of Jesus Christ, my Lord and Redeemer. 
+
+\paragraph{Act of Charity.}
+\textsc{O my} God! I love Thee above all things, with my whole heart and soul,
+because Thou art all-good and worthy of all love. I love my neighbor as
+myself for the love of Thee. I forgive all who have injured me, and ask
+pardon of all whom I have injured. 
+
+\paragraph{Act of Contrition.}
+\textsc{O my} God, I am heartily sorry for having offended Thee, and I detest all my sins, because I dread
+the loss of heaven and the pains of hell, but most of all because they offend Thee, my God, who art all good and deserving of all my love. I firmly resolve with the help of Thy grace to confess my sins, to do penance,
+and to amend my life.  Amen.
+
+\begin{FlushLeft}
+\subsubsection*{Litany of the Blessed Virgin Mary}
+
+Lord, have mercy on us.\\
+Christ, have mercy on us.\\
+Lord, have mercy on us.\\
+Christ, hear us.\\
+Christ, graciously hear us.\\
+God, the Father of heaven, \textit{have mercy on us.}\\
+God the Son, Redeemer of the world, *\\
+God the Holy Ghost, *\\
+Holy Trinity, one God, *\\
+Holy Mary, \textit{pray for us.}\\
+Holy Mother of God, **\\
+Holy Virgin of virgins, **\\
+Mother of Christ, **\\
+Mother of divine grace, **\\
+Mother most pure, **\\
+Mother most chaste, **\\
+Mother inviolate, **\\
+Mother undefiled, **\\
+Mother most lovable, **\\
+Mother most admirable, **\\
+Mother of good counsel, **\\
+Mother of our Creator, **\\
+Mother of our Savior, **\\
+Virgin most prudent, **\\
+Virgin most venerable, **\\
+Virgin most renowned, **\\
+Virgin most powerful, **\\
+Virgin most merciful, **\\
+Virgin most faithful, **\\
+Mirror of justice, **\\
+Seat of wisdom, **\\
+Cause of our joy, **\\
+Spiritual vessel, **\\
+Vessel of honor, **\\
+Singular vessel of devotion, **\\
+Mystical rose, \textit{pray for us.}\\
+Tower of David, **\\
+Tower of ivory, **\\
+House of gold, **\\
+Ark of the covenant, **\\
+Gate of heaven, **\\
+Morning star, **\\
+Health of the sick, **\\
+Refuge of sinners, **\\
+Comforter of the afflicted, **\\
+Help of Christians, **\\
+Queen of Angels, **\\
+Queen of Patriarchs, **\\
+Queen of Prophets, **\\
+Queen of Apostles, **\\
+Queen of Martyrs, **\\
+Queen of Confessors, **\\
+Queen of Virgins, **\\
+Queen of all Saints, **\\
+Queen conceived without original sin, **\\
+Queen assumed into heaven, **\\
+Queen of the most holy Rosary, **\\
+Queen of Peace, **\\
+Lamb of God, Who takest away the sins of the world, \textit{spare us, O Lord.}\\
+Lamb of God, Who takest away the sins of the world, \textit{graciously hear us O Lord.}\\
+Lamb of God, Who takest away the sins of the world, \textit{have mercy on us.}\\
+
+\versicle. Pray for us, O holy Mother of God.\\
+\response. That we may be made worthy of the promises of Christ.
+\end{FlushLeft}
+
+\textit{Let us pray.} Grant, that we Thy servants, Lord, may enjoy unfailing
+health of mind and body, and through the prayers of the ever blessed Virgin Mary in her glory,
+free us from our sorrows in this world and give us eternal happiness in the next.
+Through Christ our Lord.\\
+\response.Amen.
+
+\paragraph{Prayer for the Faithful Departed.}
+\textsc{O God!} The Creator and Redeemer of all the faithful, grant to the souls of Thy servants
+departed the remission of all their sins: that through pious supplications they may obtain that pardon
+which they have always desired: Who livest and reignest world without end.  Amen.
+
+\paragraph{Prayer for a Happy Death.}
+\textsc{O God,} Who has doomed all men to die, but hast concealed from all the hour of their death,
+grant that I may pass my days in the practice of holiness and justice, and that I may deserve to
+quit this world in the peace of a good conscience, and in the embraces of Thy love.  Through Christ
+our Lord. Amen.
+
+\subsubsection*{Prayer for Protection during the Night}
+
+\textsc{Angel} of God, to whose holy care I am committed by the divine mercy, enlighten, defend,
+and protect me this night from all sin and danger.  Amen.
+
+Visit, we beseech Thee, O Lord, this habitation, and drive from it all the snares of the enemy.
+Let Thy holy Angels dwell herein to preserve us in peace; and may Thy blessing be upon us for
+ever, through Christ our Lord. Amen.
+
+God the Father, bless us; Jesus Christ, defend and keep us; the virtue of the Holy Ghost enlighten
+and sanctify us this night and forever; and may the souls of the faithful departed rest in peace.
+Amen.
+
+Bless, O Lord, the repose I am going to take in order to renew my strength, that I may be better
+able to serve Thee.  O all ye Saints and Angels! but chiefly thou, O Mother of God! intercede
+for me this night and during the rest of my life, but particularly at the hour of my death.
+
+May the divine assistance remain always with us.  Amen.
+
+\subsubsection*{De Profundis}
+
+\textit{We have committed sins: we confess we have sinned. But God grants pardon to him who repents.}
+
+Out of the depths have I cried unto Thee, O Lord: Lord hear my voice.\\
+Let Thine ears be attentive to the voice of my supplication.\\
+If Thou, Lord, shouldst mark iniquities, O Lord, who shall stand?\\
+But there is forgiveness with Thee: because of Thy law I wait for Thee, O Lord.\\
+My soul waiteth on His word: my soul hopeth in the Lord.\\
+From the morning watch even until night let Israel hope in the Lord:\\
+For with the Lord there is mercy, and with Him is plentiful redemption.\\
+And He shall redeem Israel, from all their iniquities.
+
+\versicle. Eternal rest give into them, O Lord.\\
+\response. And let perpetual light shine upon them.\\
+\versicle. May they rest in peace.\\
+\response. Amen.
+
+\textit{Let us pray.}  O God, the Giver of pardon and Lover of man's salvation, we
+beseech Thee in Thy mercy to grant that our brethren, kinsfolk, and benefactors who have
+passed out of this life may, by the intercession of blessed Mary ever Virgin and of all Thy
+Saints, partake of everlasting bliss.  Through Christ our Lord.  Amen.
+
+\subsubsection*{Evensong}
+
+1. Sweet Savior, bless us ere we go;
+Thy Word into our minds instill,
+And make our lukewarm hearts to glow
+With lowly love and fervent will.
+
+\textit{Refrain: Through life's long day and death's dark night, O gentle Jesus, be our Light.}
+
+2. The day is done, its hours have run,
+And Thou hast taken count of all,
+The scanty triumphs grace hath won,
+The broken vow, the frequent fall.
+
+3. Grant us, dear Lord, from evil ways
+True absolution and release:
+And bless us, more than in past days,
+With purity and inward peace.
+
+4. Do more than pardon; give us joy,
+Sweet fear, and sober liberty,
+And simple hearts without alloy
+That only long to be like Thee.
+
+5. Labor is sweet, for Thou hast toiled,
+And care is light, for Thou hast cared;
+Let not our works with self be soiled,
+Nor in unsimple ways ensnared.
+
+6. For all we love, the poor, the sad,
+The sinful, unto Thee we call;
+O let Thy mercy make us glad:
+Thou art our Jesus, and our All.
+
+7. Sweet Savior, bless us; night is come;
+Through night and darkness near us be;
+Good angels watch about our home,
+And we are one day nearer Thee.
+
+\paragraph{Ejaculation.}
+\textsc{May} the Heart of Jesus in the most Blessed Sacrament be praised, adored, and loved with
+grateful affection, at every moment, in all the tabernacles of the world, even to the end of
+time.  Amen.
+
+In the name of the Father, and of the Son, and of the Holy Ghost.  Amen.
+
+\end{multicols}
+
+\pagebreak
+\lhead{\textbf{Daily Prayers for the Auxilium Christianorum}}
+
+\begin{multicols}{3}
+
+\textit{Kneel down, and say:}
+
+In the name of the Father, and of the Son, and of the Holy Ghost.  Amen.
+
+\versicle. Our help is in the name of the Lord.\\
+\response. Who made heaven and earth.
+
+Most gracious Virgin Mary, thou who wouldst crush the head of the
+serpent, protect us from the vengeance of the evil one. We offer our prayers,
+supplications, sufferings and good works to thee so that thou may purify them,
+sanctify them and present them to thy Son as a perfect offering. May this offering
+be given so that the demons that influence or seek to influence the members of the
+Auxilium Christianorum do not know the source of their expulsion and blindness.
+Blind them so that they know not our good works. Blind them so that they know
+not on whom to take vengeance. Blind them so that they may receive the just
+sentence for their works. Cover us with the Precious Blood of thy Son so that we
+may enjoy the protection which flows from His Passion and Death. Amen.
+
+\paragraph*{St. Michael Prayer.}  St. Michael the Archangel, defend us in battle; be our safeguard against the wickedness and snares of the Devil. May God rebuke him, we humbly pray, and do Thou, O Prince of the Heavenly Host, by the power of God, cast into Hell, Satan and all the other evil spirits, who wander throughout the world, seeking the ruin of souls. Amen.
+
+\paragraph*{Guardian Angel Prayer.}  Angel of God, my Guardian dear, To whom His love commits me here, Ever this day be at my side, To light and guard, to rule and guide.  Amen.
+
+\paragraph{Our Father.}  Our Father, Who art in heaven, hallowed be Thy name.
+Thy kingdom come.  Thy will be done on earth, as it is in heaven.
+Give us this day our daily bread.  And forgive us our trespasses,
+as we forgive those who trespass against us.  And lead us not
+into temptation, but deliver us from evil.  Amen.
+
+\paragraph{Hail Mary.}  Hail Mary, full of grace, the Lord is with thee;
+blessed art thou among women, and blessed is the fruit of
+thy womb, Jesus.  Holy Mary, Mother of God, pray for us sinners,
+now and at the hour of our death. Amen.
+
+\paragraph{Glory Be.}  Glory be to the Father, and to the Son, and to the Holy Ghost. As it was in the beginning, is now, and ever shall be, world without end. Amen.
+
+\begin{FlushLeft}
+\subsubsection*{Litany of the Most Precious Blood of our Lord Jesus Christ}
+
+Lord have mercy.\\
+Christ have mercy.\\
+Lord have mercy.\\
+Christ hear us.\\
+Christ graciously hear us.\\
+God the Father of Heaven, \textit{have mercy on us.}\\
+God the Son, Redeemer of the world, *\\
+God the Holy Ghost, *\\
+Holy Trinity, One God, *\\
+Blood of Christ, only-begotten Son of the Eternal Father, \textit{save us.}\\
+Blood of Christ, Incarnate Word of God, **\\
+Blood of Christ, of the New and Eternal Testament, **\\
+Blood of Christ, falling upon the earth in the Agony, **\\
+Blood of Christ, shed profusely in the Scourging, **\\
+Blood of Christ, flowing forth in the Crowning with Thorns, **\\
+Blood of Christ, poured out on the Cross, **\\
+Blood of Christ, price of our salvation, **\\
+Blood of Christ, without which there is no forgiveness, **\\
+Blood of Christ, Eucharistic drink and refreshment of souls, **\\
+Blood of Christ, stream of mercy, **\\
+Blood of Christ, victor over demons, **\\
+Blood of Christ, courage of Martyrs, **\\
+Blood of Christ, strength of Confessors, **\\
+Blood of Christ, bringing forth Virgins, **\\
+Blood of Christ, help of those in peril, **\\
+Blood of Christ, relief of the burdened, **\\
+Blood of Christ, solace in sorrow, **\\
+Blood of Christ, hope of the penitent, **\\
+Blood of Christ, consolation of the dying, **\\
+Blood of Christ, peace and tenderness of hearts, **\\
+Blood of Christ, pledge of eternal life, **\\
+Blood of Christ, freeing souls from purgatory, **\\
+Blood of Christ, most worthy of all glory and honor, **\\
+Lamb of God, Who takest away the sins of the world, spare us, O Lord.\\
+Lamb of God, Who takest away the sins of the world, graciously hear us, O Lord.\\
+Lamb of God, Who takest away the sins of the world, have mercy on us.\\
+\versicle. Thou hast redeemed us with Thy Blood, O Lord.\\
+\response. And made of us a kingdom for our God.
+\end{FlushLeft}
+
+\textit{Let us pray.}  Almighty, and everlasting God, Who hast appointed Thine only-begotten Son to be
+the Redeemer of the world, and hast been pleased to be reconciled unto us by His
+Blood, grant us, we beseech Thee, so to venerate with solemn worship the price of
+our salvation, that the power thereof may here on earth keep us from all things
+hurtful, and the fruit of the same may gladden us for ever hereafter in heaven.
+Through the same Christ our Lord.\\
+\response. Amen.
+
+\subsubsection*{On Sundays:}
+O Glorious Queen of Heaven and Earth, Virgin Most Powerful, thou who hast the
+power to crush the head of the ancient serpent with thy heel, come and exercise this
+power flowing from the grace of thine Immaculate Conception. Shield us under the
+mantle of thy purity and love, draw us into the sweet abode of thy heart and
+annihilate and render impotent the forces bent on destroying us. Come Most
+Sovereign Mistress of the Holy Angels and Mistress of the Most Holy Rosary, thou
+who from the very beginning hast received from God the power and the mission to
+crush the head of Satan. Send forth thy holy legions, we humbly beseech thee, that
+under thy command and by thy power they may pursue the evil spirits, counter them
+on every side, resist their bold attacks and drive them far from us, harming no one
+on the way, binding them to the foot of the Cross to be judged and sentenced by
+Jesus Christ Thy Son and to be disposed of by Him as He wills.
+
+St. Joseph, Patron of the Universal Church, come to our aid in this grave
+battle against the forces of darkness, repel the attacks of the devil and free the
+members of the Auxilium Christianorum, and those for whom the priests of the
+Auxilium Christianorum pray, from the strongholds of the enemy.
+
+St. Michael, summon the entire heavenly court to engage their forcesin this
+fierce battle against the powers of hell. Come O Prince of Heaven with thy mighty
+sword and thrust into hell Satan and all the other evil spirits. O Guardian Angels,
+guide and protect us. Amen.
+
+\subsubsection*{On Mondays:}
+In Thy name, Lord Jesus Christ, we pray that Thou cover us, our families, and all
+of our possessions with Thy love and Thy Most Precious Blood and surround us
+with Thy Heavenly Angels, Saints and the mantle of Our Blessed Mother. Amen.
+
+\subsubsection*{On Tuesdays:}
+Lord Jesus Christ, we beg Thee for the grace to remain guarded beneath the
+protective mantle of Mary, surrounded by the holy briar from which was taken the
+Holy Crown of Thorns, and saturated with Thy Precious Blood in the power of the
+Holy Ghost, with our Guardian Angels, for the greater glory of the Father. Amen.
+
+\subsubsection*{On Wednesdays:}
+In the Name of Jesus Christ, Our Lord and God, we ask Thee to render all spirits
+impotent, paralyzed and ineffective in attempting to take revenge against anyone
+of the members of the Auxilium Christianorum, our families, friends, communities,
+those who pray for us and their family members, or anyone associated with us and
+for whom the priests of the Auxilium Christianorum pray. We ask Thee to bind all
+evil spirits, all powers in the air, the water, the ground, the fire, under ground, or
+wherever they exercise their powers, any satanic forces in nature and any and all
+emissaries of the satanic headquarters. We ask Thee to bind by Thy Precious Blood
+all of the attributes, aspects and characteristics, interactions, communications and
+deceitful games of the evil spirits. We ask Thee to break any and all bonds, ties and
+attachmentsin the Name of the Father, and of the Son and of the Holy Ghost. Amen.
+
+\begin{FlushLeft}
+\subsubsection*{On Thursdays:}
+My Lord, Thou art all powerful, Thou art God, Thou art our Father. We beg Thee
+through the intercession and help of the Archangels Sts. Michael, Raphael, and
+Gabriel for the deliverance of our brothers and sisters who are enslaved by the evil
+one. All Saints of Heaven, come to our aid.\\
+From anxiety, sadness and obsessions, \textit{We implore Thee, deliver us, O Lord.}\\
+From hatred, fornication, and envy, *\\
+From thoughts of jealousy, rage, and death, *\\
+From every thought of suicide and abortion, *\\
+From every form of sinful sexuality, *\\
+From every division in our family, and every harmful friendship, *\\
+From every sort of spell, malefice, witchcraft, and every form of the occult, *\\
+Thou who said, "Peace I leave with you, my peace I give unto you." Grant that,
+through the intercession of the Virgin Mary, we may be liberated from every
+demonic influence and enjoy Thy peace always. In the Name of Christ, our Lord.
+Amen.
+
+\subsubsection*{On Fridays:}
+Litany of Humility
+O Jesus, meek and humble of heart, \textit{hear me.}\\
+From the desire of being esteemed, \textit{deliver me, Jesus.}\\
+From the desire of being loved, *\\
+From the desire of being extolled, *\\
+From the desire of being honored, *\\
+From the desire of being praised, *\\
+From the desire of being preferred to others, *\\
+From the desire of being consulted, *\\
+From the desire of being approved, *\\
+From the fear of being humiliated, *\\
+From the fear of being despised, *\\
+From the fear of suffering rebukes, *\\
+From the fear of being calumniated, *\\
+From the fear of being forgotten, *\\
+From the fear of being ridiculed, *\\
+From the fear of being wronged, *\\
+From the fear of being suspected, *\\
+That others may be loved more than I, \textit{Jesus, grant me the grace to desire it.}\\
+That others may be esteemed more than I, **\\
+That in the opinion of the world, others may increase and I may decrease, **\\
+That others may be chosen and I set aside, **\\
+That others may be praised and I unnoticed, **\\
+That others may be preferred to me in everything, **\\
+That others may become holier than I, provided that I become as holy as I should, **\\
+\end{FlushLeft}
+
+
+\subsubsection*{On Saturdays:}
+
+O God and Father of our Lord Jesus Christ, we call upon Thy holy Name and
+humbly beseech Thy clemency, that, through the intercession of the ever
+immaculate Virgin, our Mother Mary, and of the glorious Archangel Saint Michael,
+thou wouldst vouchsafe to help us against Satan and all the other unclean spirits that
+are prowling about the world to the great peril of the human race and the loss of
+souls. Amen.
+
+\subsubsection*{Conclusion for Every Day}
+
+August Queen of the Heavens, heavenly Sovereign of the Angels, Thou who from
+the beginning hast received from God the power and the mission to crush the head
+of Satan, we humbly beseech Thee to send thy holy legions, so that under Thy
+command and through Thy power, they may pursue the demons and combat them
+everywhere, suppress their boldness, and drive them back into the abyss. O good
+and tender Mother, Thou wilt always be our love and hope! O Divine Mother, send
+Thy Holy Angels to defend us and to drive far away from us the cruel enemy. Holy
+Angels and Archangels, defend us, guard us. Amen.
+
+Most Sacred Heart of Jesus, \textit{have mercy on us.}\\
+Mary, Help of Christians, \textit{pray for us.}\\
+Virgin Most Powerful, *\\
+St. Joseph, *\\
+St. Michael the Archangel, *\\
+All You Holy Angels, *
+
+In the name of the Father, the Son and the Holy Ghost. Amen.
+
+\end{multicols}
+
+\pagebreak
+\lhead{\textbf{Methods for Saying the Rosary by St. Louis Marie de Montfort}}
+
+\begin{tabularx}{\textwidth}{ |X|X| }
+\hline
+\thead{\textbf{English Prayers}} & \thead{\textbf{Latin Prayers}} &
+\hline
+\vspace{-5pt}
+\paragraph{Sign of the Cross.} In the Name of the Father and of the Son and of the Holy Ghost. Amen.
+&
+\vspace{-5pt}
+\paragraph{Signum Crucis.} In nomine Patris et Filii et Spiritus Sancti. Amen.
+&
+\paragraph{The Apostles' Creed.} I believe in God, the Father almighty, Creator of Heaven and earth, and in in Jesus Christ, His only Son, our Lord. He was conceived by the Holy Ghost, and born of the Virgin Mary. He suffered under Pontius Pilate, was crucified, died and was buried. He descended into Hell. On the third day He rose again. He ascended into Heaven, and is seated at the right hand of God the Father Almighty. He will come again to judge the living and the dead. I believe in the Holy Ghost, the Holy Catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and life everlasting. Amen.
+&
+\paragraph{Symbolum Apostolorum.} Credo in Deum Patrem omnipotentem, Creatorem caeli et terrae. Et in Iesum Christum, Filium eius unicum, Dominum nostrum, qui conceptus est de Spiritu Sancto, natus ex Maria Virgine, passus sub Pontio Pilato, crucifixus, mortuus, et sepultus, descendit ad inferos, tertia die resurrexit a mortuis, ascendit ad caelos, sedet ad dexteram Dei Patris omnipotentis, inde venturus est iudicare vivos et mortuos. Credo in Spiritum Sanctum, sanctam Ecclesiam Catholicam, sanctorum communionem, remissionem peccatorum, carnis resurrectionem, vitam aeternam. Amen.
+&
+\paragraph{Our Father.} Our Father, Who art in heaven, hallowed be Thy name.
+Thy kingdom come.  Thy will be done on earth, as it is in heaven.
+Give us this day our daily bread.  And forgive us our trespasses,
+as we forgive those who trespass against us.  And lead us not
+into temptation, but deliver us from evil.  Amen.
+&
+\paragraph{Pater noster.}  Pater noster, qui es in caelis, sanctificetur nomen tuum.
+Adveniat regnum tuum. Fiat voluntas tua, sicut in caelo et in terra. Panem nostrum
+quotidianum da nobis hodie, et dimitte nobis debita nostra sicut et nos dimittimus
+debitoribus nostris. Et ne nos inducas in tentationem, sed libera nos a malo.
+&
+\paragraph{Hail Mary.} Hail, Mary, full of grace, the Lord is with thee;
+blessed art thou among women, and blessed is the fruit of
+thy womb, Jesus.  Holy Mary, Mother of God, pray for us sinners,
+now and at the hour of our death. Amen.
+&
+\paragraph{Ave Maria.}Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus,
+et benedictus fructus ventris tui, Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus,
+nunc, et in hora mortis nostrae. Amen.
+&
+\paragraph{The Glory Be.} Glory be to the Father, and to the Son, and to the Holy Ghost. As it was in the beginning, is now, and ever shall be, world without end. Amen.
+&
+\paragraph{Doxologia Minor.} Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in saecula saeculorum. Amen.
+&
+\paragraph{Fatima Prayer.} O my Jesus, forgive us our sins, save us from the fires of Hell, lead all souls to Heaven, especially those in most need of Thy mercy.
+&
+\paragraph{Oratio Fatimae.} O mi Iesu, dimitte nobis debita nostra, libera nos ab igne inferni, conduc in caelum omnes animas, praesertim illas quae maxime indigent misericordia tua.
+&
+\paragraph{Hail, Holy Queen.} Hail holy Queen, mother of mercy, our life, our sweetness, and our hope. To thee do we cry, poor banished children of Eve. To thee do we send up our sighs, mourning and weeping in this valley of tears. Turn then, most gracious Advocate, thine eyes of mercy toward us. And after this, our exile, show unto us the blessed Fruit of thy womb, Jesus. O clement, O loving, O sweet Virgin Mary.
+
+\versicle. Pray for us, O holy Mother of God.
+
+\response. That we may be made worthy of the promises of Christ.
+
+\versicle. Let us pray.
+
+O God, whose only begotten Son, by His life, death, and resurrection,
+has purchased for us the rewards of eternal salvation,
+grant, we beseech Thee, that while meditating on these mysteries of the most
+holy Rosary of the Blessed Virgin Mary, that we may both imitate what they
+contain and obtain what they promise, through the same Christ our Lord. Amen.
+
+Most Sacred Heart of Jesus, have mercy on us.
+
+Immaculate Heart of Mary, pray for us.
+&
+\paragraph{Salve Regina.} Salve, Regina, mater misericordiae: vita, dulcedo, et spes nostra, salve. Ad te clamamus exsules filii Hevae. Ad te suspiramus, gementes et flentes in hac lacrimarum valle. Eia, ergo, advocata nostra, illos tuos misericordes oculos ad nos converte. Et Iesum, benedictum fructum ventris tui, nobis post hoc exsilium ostende. O clemens, O pia, O dulcis Virgo Maria.
+
+\versicle. Ora pro nobis, Sancta Dei Genetrix.
+
+\response. Ut digni efficiamur promissionibus Christi.
+
+\versicle. Oremus.
+
+Deus, cujus Unigenitus, per vitam, mortem et resurrectionem suam nobis salutis aeternae praemia comparavit: concede, quaesumus; ut, haec mysteria sanctissimo beatae Mariae Virginis Rosario recolentes; et imitemur quod continent, et quod promittunt, assequamur. Per eumdem Christum Dominum nostrum. Amen.
+
+Sacratissimi Cordis Iesu, ora pro nobis.
+
+Immaculati Cordis Mariae, ora pro nobis.
+
+
+&
+\hline
+\end{tabularx}
+
+\pagebreak
+
+\begin{tabularx}{\textwidth}{ |X|X|X| }
+\hline
+\thead{\textbf{Joyful Mysteries}} & \thead{\textbf{Sorrowful Mysteries}} & \thead{\textbf{Glorious Mysteries}} &
+\hline
+\textit{Mondays; Thursdays; Sundays of Advent, Christmastide and Time After Epiphany}
+&
+\textit{Tuesdays; Fridays; all the days of Septuagesima and Lent}
+&
+\textit{Wednesdays; Saturdays; Sundays of Eastertide and Time After Pentecost}
+&
+\hline
+\paragraph{The Incarnation.} We offer you, Lord Jesus, this first decade in honor of your Incarnation. Through this mystery and the intercession of your holy Mother we ask for humility of heart. \textit{(May the grace of the mystery of the Incarnation come into me and make me truly humble.)}
+
+\paragraph{The Visitation.} We offer you, Lord Jesus, this second decade in honor of the Visitation of your holy Mother to her cousin Saint Elizabeth. Through this mystery and the intercession of Mary we ask for a perfect love of our neighbor. \textit{(May the grace of the mystery of the Visitation come into me and make me truly charitable.)}
+
+\paragraph{The Birth of Jesus.} We offer you, Child Jesus, this third decade in honor of your holy Birth. Through this mystery and the intercession of your blessed Mother we ask for detachment from the things of this world, love of poverty and love of the poor. \textit{(May the grace of the Birth of Jesus come into me and make me truly poor in spirit.)}
+
+\paragraph{The Presentation in the Temple.} We offer you, O Lord Jesus, this fourth decade in honor of your presentation in the temple by the hands of Mary. Through this mystery and the intercession of your blessed Mother we ask for the gift of wisdom and purity of heart and body. \textit{(May the grace of the mystery of the presentation come into me and make me truly wise and pure.)}
+
+\paragraph{The Finding of Jesus.} We offer you, Lord Jesus, this fifth decade to honor Mary's finding you in the temple among the learned men after she had lost you. Through this mystery and the intercession of your blessed Mother we ask you to convert us and all sinners, heretics, schismatics and pagans. \textit{(May the grace of the mystery of the Finding of Jesus in the temple come into me that I may be truly converted.)}
+&
+\paragraph{The Agony.} We offer you, Lord Jesus, this sixth decade in honor of your intense agony in the garden of Olives. Through this mystery and the intercession of your holy Mother we ask for perfect sorrow for our sins and
+perfect conformity to your holy will. \textit{(May the grace of the Agony of Jesus come into me and make me truly contrite and perfectly obedient to the will of God.)}
+
+\paragraph{The Scourging.} We offer you, Lord Jesus, this seventh decade in honor of your cruel Scourging. Through this mystery and the intercession of your holy Mother we ask for the grace to mortify our senses. \textit{(May the grace of the Scourging of Jesus come into me and make me truly mortified.)}
+
+\paragraph{The Crowning with Thorns.} We offer you, Lord Jesus, this eighth decade in honor of being crowned with Thorns. Through this mystery and the intercession of your holy Mother we ask for a deep contempt of the world. \textit{(May the grace of the mystery of Our Lord's Crowning with Thorns come into me and make me truly opposed to the world.)}
+
+\paragraph{The Carrying of the Cross.} We offer you, Lord Jesus, this ninth decade in honor of your carrying the Cross. Through this mystery and the intercession of your holy Mother we ask for great patience in carrying our cross after you all the days of our life. \textit{(May the grace of the mystery of the carrying of the Cross come into me and make me truly patient.)}
+
+\paragraph{The Crucifixion.} We offer you, Lord Jesus, this tenth decade in honor of your Crucifixion on Mount Calvary. Through this mystery and the intercession of your holy Mother we ask for a great horror of sin, a love for
+the Cross and the grace of a holy death for us and for those who are now in their last agony. \textit{(May the grace of the Death and Passion of Our Lord and Savior Jesus Christ come into me and make me truly holy.)}
+&
+\paragraph{The Resurrection.} We offer you, Lord Jesus, this eleventh decade in honor of your triumphant Resurrection. Through this mystery and through the intercession of your holy Mother we ask for a lively faith. \textit{(May the grace of the Resurrection come into me and make me truly faithful.)}
+\paragraph{The Ascension.} We offer you, Lord Jesus, this twelfth decade in honor of your glorious Ascension. Through this mystery and the intercession of your holy Mother we ask for a firm hope and a great longing for heaven. \textit{(May the grace of the mystery of the Ascension of Our Lord come into me and prepare me for
+heaven.)}
+\paragraph{The Pentecost.} We offer you, O Holy Ghost, this thirteenth decade in honor of the mystery of Pentecost. Through this mystery and the intercession of Mary, your most holy spouse, we ask for your holy wisdom that we may know, taste and practice your truth and share it with everyone. \textit{(May the grace of Pentecost come into me and make me truly wise in the eyes of God.)}
+\paragraph{The Assumption of the Blessed Virgin.} We offer you, Lord Jesus, this fourteenth decade in honor of the Immaculate Conception of your holy Mother and her assumption into heaven body and soul. Through these two mysteries and her intercession we ask for the gift of true devotion to her in order to live a good life and have a happy death. \textit{(May the grace of the Immaculate Conception and the Assumption of Mary come into me and make
+me truly devoted to her.)}
+
+\paragraph{The Coronation of Mary.} We offer you, Lord Jesus, this fifteenth and last decade in honor of the Crowning in glory of your holy Mother in heaven. Through this mystery and her intercession we ask for perseverance and an increase in virtue up to the moment of our death and thereafter the eternal crown that is prepared for us. We ask for the same grace for all the just and all our benefactors.
+&
+\hline
+\end{tabularx}
+
+\pagebreak
+\lhead{\textbf{Prayers of The Angelic Warfare Confraternity}}
+
+\begin{multicols}{2}
+
+\textit{Kneel down, and say:}
+
+In the name of the Father, the Son and the Holy Ghost. Amen.
+
+\subsection*{The Prayer to St. Thomas for Purity}
+
+Chosen lily of innocence, pure St. Thomas,
+who kept chaste the robe of baptism,
+and became an angel in the flesh after being girded by two angels,
+I implore you to commend me to Jesus, the Spotless Lamb,
+and to Mary, the Queen of Virgins.
+Gentle protector of my purity, ask them that I,
+who wear the holy sign of your victory over the flesh,
+may also share your purity,
+and after imitating you on earth
+may at last come to be crowned with you among the angels. Amen. 
+
+\subsection*{The Prayer of St. Thomas for Purity}
+
+Dear Jesus,
+I know that every perfect gift,
+and especially that of chastity,
+depends on the power of Your providence.
+Without You a mere creature can do nothing.
+Therefore, I beg You to defend by Your grace
+the chastity and purity of my body and soul.
+And if I have ever sensed or imagined anything
+that could stain my chastity and purity,
+blot it out, Supreme Lord of my powers,
+that I may advance with a pure heart in Your love and service,
+offering myself on the most pure altar of Your divinity
+all the days of my life. Amen.
+
+\subsection*{Petitions for Chastity with 15 Hail Marys:}
+
+\begin{enumerate}
+\item Dear Jesus, bless our social and cultural climate. Grant that it may be purified of everything contrary to chastity, and that we may have the strength to resist the pressures of prevailing ideologies. "In the world you have tribulation; but be of good cheer, I have conquered the world" (Jn. 16:33) "In all these things we are more than conquerors through him who loved us" (Rom. 8:37) Hail Mary...
+
+\item Dear Jesus, bless our relationships. Grant that they may be holy, healthy, and honorable at all times. "Having purified your souls by your obedience to the truth for a sincere love of the brethren, love one another earnestly from the heart" (1 Pet. 1:22) Hail Mary...
+
+\item Dear Jesus, bless our modesty in our dress and movement. Grant that the way we dress and carry ourselves may veil the mystery of our being, and that we may have the strength to resist the allurements of fashion and the glamour of sin. "Do not be conformed to this age, but be transformed by the renewal of your mind" (Rom. 12:2) Hail Mary...
+
+\item Dear Jesus, bless our five senses. Grant that the things we see, the music and jokes we hear, the food we eat, what we drink, the fragrances we smell and the encounters we have through touch may all be pure and holy. "Seek the things that are above" (Col. 3:1) Hail Mary...
+
+\item Dear Jesus, bless our sensuality. Grant that our impulses may not be captivated by base pleasures, but freed by wisdom and inflamed for what is good. "In your struggle against sin you have not yet resisted to the point of shedding your blood" (Heb. 12:4) Hail Mary...
+
+\item Dear Jesus, bless our imagination, Grant that we may be preserved from any fantasies that defile us, that all impure images may vanish, and that we may be protected from all the assaults of demons. "Be renewed in the spirit of your minds... Put on the whole armor of God" (Eph. 4:23, 6:11) Hail Mary...
+
+\item Dear Jesus, bless our memory. Grant that no memories of past experiences may disturb us in any way, but that the Lord may touch and heal us through hope for a better future. "And every one who thus hopes in him purifies himself as he is pure" (1 Jn. 3:1) Hail Mary...
+
+\item Dear Jesus, bless our estimation. Grant that we may quickly sense dangers to chastity and instinctively flee from them, that we may never turn away from higher, more difficult, and more honorable goods for the sake of sinful self-indulgence. "Do not lay up for yourselves treasures on earth, where moth and rust consume and where thieves break in and steal, but lay up for yourselves treasures in heaven, where neither moth nor rust consumes and where thieves do not break in and steal." (Mt. 6:19-20) Hail Mary...
+
+\item Dear Jesus, bless our affectivity. Grant that we may love chastity and rejoice in it, that all of our emotions may cooperate in its growth, and that no sadness, discouragement, fear, insecurity, or loneliness may afflict us unto sexual sin. "For the grace of God has appeared, saving all and training us to reject godless ways and worldly desires and to live temperately, justly, and devoutly in this age, as we await the blessed hope, the appearance of the glory of our great God and Savior Jesus Christ" (Titus 2:11-12) Hail Mary...
+
+\item Dear Jesus, bless our intellect. Grant that it may be purged of all false beliefs and misunderstandings about human sexuality and that the good angels may flood our intellects with thoughts that are gracious, pure, lovely, honorable, and true. "Finally, brethren, whatever is true, whatever is honorable, whatever is just, whatever is pure, whatever is lovely, whatever is gracious, if there is any excellence, if there is anything worthy of praise, think about these things." (Phil. 4:8) Hail Mary...
+
+\item Dear Jesus, bless our will. Grant that it may never be opposed by our sensuality, that it may never be divided or conflicted in the moment, but may hold fast to chastity no matter how difficult it may be. "For the Son of God, Jesus Christ... was not Yes and No; but in him it is always Yes. For all the promises of God find their Yes in him." (2 Cor. 1:19-20) Hail Mary...
+
+\item Dear Jesus, bless our conscience. Grant that it may be swift to judge what is the chaste thing to do, swifter to execute it, and wholly preserved from the suggestions of demons. "How much more shall the blood of Christ, who through the eternal Spirit offered himself without blemish to God, purify your conscience from dead works to serve the living God?" (Heb. 9:14) Hail Mary...
+
+\item Dear Jesus, bless our hearts. Grant that the place where Christ abides in us with the Father and the Spirit may become the place where we live with the Holy Trinity in friendship. "Jesus answered him, 'If a man loves me, he will keep my word, and my Father will love him, and we will come to him and make our home with him.' " (Jn. 14:23) Hail Mary...
+
+\item Dear Jesus, give us the grace of self-surrender. Grant that we may hand over to God nothing less than our whole lives. "Father, into your hands I commend my spirit" (Lk. 23:46) "Blessed are the poor in spirit, for theirs is the kingdom of heaven" (Mt. 5:3) Hail Mary...
+
+\item Dear Jesus, give us Your love. "In this is love, not that we loved God but that He loved us and sent His Son to be the expiation for our sins." (1 Jn. 4:10) "But God shows His love for us in that while we were yet sinners Christ died for us" (Rom. 5:8) Hail Mary...
+
+\end{enumerate}
+
+\subsection*{Closing Prayer}
+Heavenly King, Consoler, Spirit of Truth, You who are everywhere present and fill all things, Treasury of all that is good, Choirmaster of Life, Come, dwell within us, cleanse us of all stain, and save our souls O Good One. Amen.
+
+In the name of the Father, the Son and the Holy Ghost. Amen.
+
+\end{multicols}
+
+  \vfill
+  \begin{center}    
+      \includegraphics [width=2in] {512px-Miraculous_medal_reverse_symbols.jpg}
+  \end{center}
+  \vfill
+  
 
 \end{document}
